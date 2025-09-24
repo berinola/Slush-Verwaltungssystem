@@ -60,13 +60,15 @@ Slush-VS/
 ### Backend starten
 ```bash
 cd slush-backend
-Projekt starten
-cd läuft anschließend unter: http://localhost:8080
+Projekt starten#
 ```
+Backend läuft anschließend unter: http://localhost:8080
+
 ### Frontend starten
 ```bash
 cd slush-frontend
 npm install
 npm run dev
-Frontend läuft anschließend unter: http://localhost:5173
 ```
+Frontend läuft anschließend unter: http://localhost:5173
+
