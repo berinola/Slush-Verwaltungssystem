@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>Rechnung [[${invoice.number}]]</title>
+    <style>
+        @page { size: A4; margin: 20mm; }
+        * { box-sizing: border-box; }
+        body { font-family: sans-serif; font-size: 12px; line-height: 1.35; color: #111; }
+        .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; }
+        h1 { font-size: 22px; margin: 0 0 6px; letter-spacing: 0.5px; }
+        .anschrift { white-space: pre-line; color: #333; }
+        .meta { text-align: right; }
+        .meta .row { margin-bottom: 4px; }
+        .meta .label { color: #555; margin-right: 8px; }
+        .titel { font-size: 18px; font-weight: 700; margin: 10px 0 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+        thead th { text-align: left; font-weight: 700; border-bottom: 2px solid #000; padding: 8px 6px; }
+        tbody td { padding: 8px 6px; border-bottom: 1px solid #ddd; vertical-align: top; }
+        .right { text-align: right; }
+        .pos { width: 40px; }
+        .menge { width: 70px; }
+        .ePreis, .gesPreis { width: 140px; }
+        .GesBetrag { margin-top: 12px; text-align: right; }
+        .GesBetrag .line { margin: 2px 0; }
+        .Zusatzinfos { margin-top: 14px; color: #333; }
+        .foot { margin-top: 12px; }
+    </style>
+</head>
+<body>
+
+<!-- Kopfbereich -->
+<div class="header">
+    <div>
+        <h1>OB-Slush</h1>
+        <div class="anschrift">
+            Karl-Haarmann-Straße&nbsp;2B
+            44536&nbsp;Lünen
+            Tel: 0157&nbsp;59081318
+        </div>
+    </div>
+    <div class="meta">
+        <div class="row"><span class="label">Rechnung&nbsp;Nr.:</span><strong>[[${invoice.number}]]</strong></div>
+        <div class="row"><span class="label">Rechnungsdatum:</span><strong>[[${invoice.date}]]</strong></div>
+    </div>
+</div>
+
+<div class="titel">Rechnung</div>
+
+<table>
+    <thead>
+    <tr>
+        <th class="pos">Pos.</th>
+        <th>Artikel</th>
+        <th class="menge right">Menge</th>
+        <th class="ePreis right">Einzelpreis (netto)</th>
+        <th class="gesPreis right">Gesamtpreis (netto)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="it, i : ${invoice.zubehor}">
+        <td class="pos" th:text="${i.index + 1}"></td>
+        <td th:text="${it.name}"></td>
+        <td class="menge right" th:text="${it.menge}"></td>
+        <td class="ePreis right" th:text="${it.preis + ' €'}"></td>
+        <td class="gesPreis right" th:text="${#numbers.formatDecimal(it.summe, 1, 'COMMA', 2, 'POINT')} + ' €'"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<div class="GesBetrag">
+    Gesamtbetrag: <strong>[[${#numbers.formatDecimal(invoice.gesamtPreis, 1, 'COMMA', 2, 'POINT')}]] €</strong>
+</div>
+
+
+<div class="Zusatzinfos">
+    Gemäß §&nbsp;19 Abs.&nbsp;1 UStG wird keine Umsatzsteuer berechnet.
+</div>
+<div class="foot">
+    Leistungsdatum entspricht Rechnungsdatum.<br>
+    Vielen Dank für Ihren Einkauf!
+</div>
+
+</body>
+</html>
+
+

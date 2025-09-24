@@ -1,0 +1,26 @@
+/* Header.css */
+.header {
+    display: flex;
+    gap: 16px;
+    padding: 12px 20px;
+    background-color: #0f172a; /* dunkles Blau/Anthrazit */
+}
+
+.header a {
+    color: #f1f5f9; /* fast weiß */
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.header a:hover {
+    background-color: #1e293b; /* etwas heller */
+}
+
+.header a.active {
+    background-color: #2563eb; /* blau */
+    color: #ffffff;
+    font-weight: 600;
+}
