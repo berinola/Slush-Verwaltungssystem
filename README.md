@@ -44,7 +44,7 @@ Slush-VS/
 │ │ └── service # Business-Logik
 │ ├── src/main/resources/
 │ │ ├── templates/invoice.html # Vorlage für Rechnungs-PDF
-│ │ ├── application.properties
+│ │ └── application.properties
 │ └── src/test/java/... # Unit-Tests
 │
 ├── slush-frontend/ # React Frontend
@@ -53,7 +53,7 @@ Slush-VS/
 │ ├── App.jsx, main.jsx # Einstiegspunkte
 │ └── vite.config.js # Vite-Konfiguration
 │
-└── SQL/ # SQL-Skripte (z.B. Schema, Testdaten, Resetdaten)
+└── SQL/ # SQL-Skripte (Schema, Testdaten, Resetdaten)
 
 ## Installation & Start
 
