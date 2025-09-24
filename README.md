@@ -34,7 +34,7 @@ Das Projekt entstand privat, um **Fullstack-Entwicklung in der Praxis zu üben**
 ---
 
 ## Projektstruktur
-
+```text
 Slush-VS/
 ├── slush-backend/ # Spring Boot Backend
 │ ├── src/main/java/com/slushapp/slush_backend/
@@ -54,7 +54,7 @@ Slush-VS/
 │ └── vite.config.js # Vite-Konfiguration
 │
 └── SQL/ # SQL-Skripte (Schema, Testdaten, Resetdaten)
-
+```
 ## Installation & Start
 
 ### Backend starten
